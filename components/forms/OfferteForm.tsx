@@ -25,10 +25,10 @@ const InputField = ({ id, label, type = 'text', value, onChange, error, limit, r
             type={type}
             id={id}
             name={id}
-            value={value}
+            value={value ?? ''} // Poprawka: gwarantuje string
             onChange={onChange}
             required={required}
-            placeholder={placeholder}
+            placeholder={placeholder ?? ''} // Poprawka: gwarantuje string
             className={`mt-1 block w-full px-3 py-2 bg-white border ${error ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm text-gray-900`}
             aria-describedby={error ? `${id}-error` : undefined}
         />
@@ -43,11 +43,11 @@ const TextareaField = ({ id, label, value, onChange, error, limit, required = fa
         <textarea
             id={id}
             name={id}
-            value={value}
+            value={value ?? ''} // Poprawka: gwarantuje string
             onChange={onChange}
             required={required}
             rows={5}
-            placeholder={placeholder}
+            placeholder={placeholder ?? ''} // Poprawka: gwarantuje string
             className={`mt-1 block w-full px-3 py-2 bg-white border ${error ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm text-gray-900`}
             aria-describedby={error ? `${id}-error` : undefined}
         />
@@ -88,17 +88,17 @@ const OfferteForm = () => {
     const validate = (): boolean => {
         const newErrors: Errors = {};
         
-        if (!formState.naam.trim()) newErrors.naam = 'Uw naam is verplicht.';
-        if (!formState.email.trim()) newErrors.email = 'E-mailadres is verplicht.';
-        else if (!/\S+@\S+\.\S+/.test(formState.email)) newErrors.email = 'Ongeldig e-mailadres.';
-        if (formState.email !== formState.emailBevestigen) newErrors.emailBevestigen = 'E-mailadressen komen niet overeen.';
-        if (!formState.bouwproject) newErrors.bouwproject = 'Selecteer een type bouwproject.';
-        if (!formState.startdatum) newErrors.startdatum = 'Startdatum is verplicht.';
-        if (!formState.einddatum) newErrors.einddatum = 'Einddatum is verplicht.';
-        if (!formState.apparatuur.trim()) newErrors.apparatuur = 'Apparatuur en kwantiteit is verplicht.';
-        if (formState.projectAdres.length > 100) newErrors.projectAdres = 'Adres mag niet langer zijn dan 100 tekens.';
-        if (formState.verzoeken.split(' ').filter(Boolean).length > 500) newErrors.verzoeken = 'Verzoeken mogen niet meer dan 500 woorden bevatten.';
-        if (formState.privacy !== 'true') newErrors.privacy = 'U moet het privacybeleid accepteren.';
+    if (!(formState.naam ?? '').trim()) newErrors.naam = 'Uw naam is verplicht.'; // Poprawka: gwarantuje string
+    if (!(formState.email ?? '').trim()) newErrors.email = 'E-mailadres is verplicht.'; // Poprawka: gwarantuje string
+    else if (!/\S+@\S+\.\S+/.test(formState.email ?? '')) newErrors.email = 'Ongeldig e-mailadres.'; // Poprawka: gwarantuje string
+    if ((formState.email ?? '') !== (formState.emailBevestigen ?? '')) newErrors.emailBevestigen = 'E-mailadressen komen niet overeen.'; // Poprawka: gwarantuje string
+    if (!(formState.bouwproject ?? '')) newErrors.bouwproject = 'Selecteer een type bouwproject.'; // Poprawka: gwarantuje string
+    if (!(formState.startdatum ?? '')) newErrors.startdatum = 'Startdatum is verplicht.'; // Poprawka: gwarantuje string
+    if (!(formState.einddatum ?? '')) newErrors.einddatum = 'Einddatum is verplicht.'; // Poprawka: gwarantuje string
+    if (!(formState.apparatuur ?? '').trim()) newErrors.apparatuur = 'Apparatuur en kwantiteit is verplicht.'; // Poprawka: gwarantuje string
+    if ((formState.projectAdres ?? '').length > 100) newErrors.projectAdres = 'Adres mag niet langer zijn dan 100 tekens.'; // Poprawka: gwarantuje string
+    if ((formState.verzoeken ?? '').split(' ').filter(Boolean).length > 500) newErrors.verzoeken = 'Verzoeken mogen niet meer dan 500 woorden bevatten.'; // Poprawka: gwarantuje string
+    if ((formState.privacy ?? '') !== 'true') newErrors.privacy = 'U moet het privacybeleid accepteren.'; // Poprawka: gwarantuje string
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
