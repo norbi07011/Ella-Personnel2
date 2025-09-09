@@ -26,7 +26,7 @@ const ServicesSection: React.FC = () => {
                 <AnimatePresence>
                     <motion.img
                         key={activeImage}
-                        src={activeImage}
+                        src={activeImage ?? ''}
                         initial={{ opacity: 0, scale: 1.1 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
@@ -117,7 +117,7 @@ const RentServicesSection: React.FC<ServicesPageProps> = ({ setPage }) => {
                 <AnimatePresence>
                     <motion.img
                         key={activeImage}
-                        src={activeImage}
+                        src={activeImage ?? ''}
                         initial={{ opacity: 0, scale: 1.1 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
@@ -182,7 +182,7 @@ const WhyUsSection: React.FC = () => {
                 <AnimatePresence>
                     <motion.img
                         key={activeImage}
-                        src={activeImage}
+                        src={activeImage ?? ''}
                         initial={{ opacity: 0, scale: 1.1 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}

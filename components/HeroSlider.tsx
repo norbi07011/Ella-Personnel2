@@ -43,8 +43,8 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ setPage }) => {
           className="absolute inset-0 z-0"
         >
           <img
-            src={currentSlide.image}
-            alt={currentSlide.alt}
+            src={currentSlide.image ?? ''}
+            alt={currentSlide.alt ?? ''}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
@@ -80,7 +80,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ setPage }) => {
                   {currentSlide.ctas.map((cta, index) => (
                     <button
                       key={index}
-                      onClick={() => setPage(cta.page as Page, { contactTab: cta.contactTab })}
+                      onClick={() => setPage(cta.page as Page, { contactTab: cta.contactTab ?? '' })}
                       className={`px-8 py-3 rounded-full font-semibold transition-transform duration-300 hover:scale-105 ${
                         cta.variant === 'primary'
                           ? 'bg-fuchsia-500 hover:bg-fuchsia-600 shadow-lg shadow-fuchsia-500/30'
@@ -129,7 +129,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ setPage }) => {
                   transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                   onClick={() => setCurrentIndex(index)}
                 >
-                  <img src={slide.image} alt={slide.alt} className="w-full h-full object-cover" />
+                  <img src={slide.image ?? ''} alt={slide.alt ?? ''} className="w-full h-full object-cover" />
                    <div className={`absolute inset-0 bg-black transition-opacity duration-300 ${offset !== 0 ? 'opacity-50' : 'opacity-10'}`}></div>
                 </motion.div>
               );

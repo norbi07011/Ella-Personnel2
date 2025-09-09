@@ -48,20 +48,20 @@ const SectorsSection: React.FC<HomePageProps> = ({ setPage }) => {
              <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <SectorCard
                     icon={<BuildingIcon />}
-                    title={t('home.sectors.construction.title')}
-                    description={t('home.sectors.construction.description')}
+                    title={t('home.sectors.construction.title') ?? ''}
+                    description={t('home.sectors.construction.description') ?? ''}
                     onClick={() => setPage('contact', { contactTab: 'quote' })}
                 />
                 <SectorCard
                     icon={<HeartIcon />}
-                    title={t('home.sectors.healthcare.title')}
-                    description={t('home.sectors.healthcare.description')}
+                    title={t('home.sectors.healthcare.title') ?? ''}
+                    description={t('home.sectors.healthcare.description') ?? ''}
                     onClick={() => setPage('contact', { contactTab: 'healthcareApply' })}
                 />
                  <SectorCard
                     icon={<BoltIcon />}
-                    title={t('home.sectors.electrical.title')}
-                    description={t('home.sectors.electrical.description')}
+                    title={t('home.sectors.electrical.title') ?? ''}
+                    description={t('home.sectors.electrical.description') ?? ''}
                     onClick={() => setPage('contact', { contactTab: 'quote' })}
                 />
             </div>
@@ -141,19 +141,19 @@ const TestimonialsContent: React.FC = () => {
     const { t } = useTranslation();
     const testimonials = [
         {
-          author: t('home.testimonials.t1.author'),
-          role: t('home.testimonials.t1.role'),
-          quote: t('home.testimonials.t1.quote'),
+          author: t('home.testimonials.t1.author') ?? '',
+          role: t('home.testimonials.t1.role') ?? '',
+          quote: t('home.testimonials.t1.quote') ?? '',
         },
         {
-          author: t('home.testimonials.t2.author'),
-          role: t('home.testimonials.t2.role'),
-          quote: t('home.testimonials.t2.quote'),
+          author: t('home.testimonials.t2.author') ?? '',
+          role: t('home.testimonials.t2.role') ?? '',
+          quote: t('home.testimonials.t2.quote') ?? '',
         },
         {
-          author: t('home.testimonials.t3.author'),
-          role: t('home.testimonials.t3.role'),
-          quote: t('home.testimonials.t3.quote'),
+          author: t('home.testimonials.t3.author') ?? '',
+          role: t('home.testimonials.t3.role') ?? '',
+          quote: t('home.testimonials.t3.quote') ?? '',
         },
     ];
 

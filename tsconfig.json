@@ -3,7 +3,7 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true, // Minimalna poprawka: przyspiesza kompilację, nie wpływa na bezpieczeństwo typów własnych
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,

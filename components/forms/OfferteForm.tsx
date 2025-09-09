@@ -18,17 +18,39 @@ const projectTypes = [
     'Infrastructuur', 'Landschapsarchitectuur', 'Anders'
 ];
 
-const InputField = ({ id, label, type = 'text', value, onChange, error, limit, required = false, placeholder = '' }: any) => (
+interface InputFieldProps {
+    id: string;
+    label: string;
+    type?: string;
+    value?: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    error?: string | null;
+    limit?: number;
+    required?: boolean;
+    placeholder?: string;
+}
+
+const InputField = ({
+    id,
+    label,
+    type = 'text',
+    value = '',
+    onChange,
+    error = null,
+    limit,
+    required = false,
+    placeholder = ''
+}: InputFieldProps) => (
     <div>
         <label htmlFor={id} className="block text-sm font-medium text-gray-700">{label}{required && ' *'}</label>
         <input
             type={type}
             id={id}
             name={id}
-            value={value ?? ''} // Poprawka: gwarantuje string
+                        value={value}
             onChange={onChange}
             required={required}
-            placeholder={placeholder ?? ''} // Poprawka: gwarantuje string
+                        placeholder={placeholder}
             className={`mt-1 block w-full px-3 py-2 bg-white border ${error ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm text-gray-900`}
             aria-describedby={error ? `${id}-error` : undefined}
         />
@@ -37,17 +59,37 @@ const InputField = ({ id, label, type = 'text', value, onChange, error, limit, r
     </div>
 );
 
-const TextareaField = ({ id, label, value, onChange, error, limit, required = false, placeholder = '' }: any) => (
+interface TextareaFieldProps {
+    id: string;
+    label: string;
+    value?: string;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    error?: string | null;
+    limit?: number;
+    required?: boolean;
+    placeholder?: string;
+}
+
+const TextareaField = ({
+    id,
+    label,
+    value = '',
+    onChange,
+    error = null,
+    limit,
+    required = false,
+    placeholder = ''
+}: TextareaFieldProps) => (
     <div>
         <label htmlFor={id} className="block text-sm font-medium text-gray-700">{label}{required && ' *'}</label>
         <textarea
             id={id}
             name={id}
-            value={value ?? ''} // Poprawka: gwarantuje string
+                        value={value}
             onChange={onChange}
             required={required}
             rows={5}
-            placeholder={placeholder ?? ''} // Poprawka: gwarantuje string
+                        placeholder={placeholder}
             className={`mt-1 block w-full px-3 py-2 bg-white border ${error ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm text-gray-900`}
             aria-describedby={error ? `${id}-error` : undefined}
         />

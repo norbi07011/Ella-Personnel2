@@ -125,7 +125,7 @@ const SectorsCarousel = () => {
                             <h3 className="text-xl font-bold font-display mb-2">{sector.title}</h3>
                             <p className="text-dark-subtext text-sm flex-grow mb-6">{sector.description}</p>
                             <Button asChild variant="link" className="!p-0 !justify-start text-accent-cyan">
-                                <Link href={sector.href}>
+                                <Link href={sector.href ?? ''}>
                                     Meer informatie
                                     <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
                                 </Link>

@@ -117,7 +117,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ setPage }) => {
         <AnimatePresence>
             <motion.img
               key={currentImageIndex}
-              src={aboutHeaderImages[currentImageIndex]}
+              src={aboutHeaderImages[currentImageIndex] ?? ''}
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1, transition: { duration: 1.5, ease: 'easeInOut' } }}
               exit={{ opacity: 0, transition: { duration: 1.5, ease: 'easeInOut' } }}

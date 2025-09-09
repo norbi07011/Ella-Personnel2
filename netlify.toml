@@ -1,11 +1,11 @@
-# Netlify configuration for Vite React app
+
+# Netlify configuration for Next.js app
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = ".next"
 
-[dev]
-  command = "npm run dev"
-  port = 5173
+[environment]
+  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/*"
