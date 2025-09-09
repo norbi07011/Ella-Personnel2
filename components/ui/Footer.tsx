@@ -35,7 +35,7 @@ const Footer = () => {
              <p className="text-dark-subtext text-sm mt-2">
                 Ontwikkeld en beheerd door Fibronic
              </p>
-             <Link href={"/privacy-policy" ?? ""} className="text-sm text-dark-subtext hover:text-accent-cyan transition-colors mt-2 inline-block">
+             <Link href="/privacy-policy" className="text-sm text-dark-subtext hover:text-accent-cyan transition-colors mt-2 inline-block">
                 {/* TODO: Create privacy policy page */}
                 Privacybeleid
              </Link>
